@@ -43,6 +43,8 @@ Il progetto implementa un'architettura serverless moderna che include:
                                               └─────────────────────────────┘
 ```
 
+![Architecture Diagram](docs/diagrams/diagram.png)
+
 ### Flusso dei dati:
 
 1. **Accesso utente**:
