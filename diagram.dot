@@ -1,0 +1,161 @@
+digraph "Diagram" {
+  splines = "ortho";
+  pad = "1.0";
+  nodesep = "0.60";
+  ranksep = "0.75";
+  fontname = "Sans-Serif";
+  fontsize = "15";
+  dpi = "200";
+  rankdir = "BT";
+  compound = "true";
+  fontcolor = "#222222";
+  edge [
+    color = "#D5871488",
+    penwidth = 2,
+    arrowhead = "dot",
+    arrowtail = "dot",
+  ];
+  node [
+    shape = "box",
+    style = "rounded",
+    fixedsize = true,
+    width = 1.7,
+    height = 1.7,
+    labelloc = "c",
+    imagescale = true,
+    fontname = "Sans-Serif",
+    fontsize = 8,
+    margin = 8,
+  ];
+  subgraph "SummitMilan2025ProdStack" {
+    subgraph "cluster-SubGraph.SummitMilan2025ProdStack" {
+      graph [
+        label = "SummitMilan2025ProdStack",
+        labelloc = "b",
+        labeljust = "l",
+        margin = "10",
+        fontsize = "16",
+        penwidth = "2",
+        pencolor = "#888888",
+        style = "filled,rounded",
+        fillcolor = "#e4e4e4",
+      ];
+      "SummitMilan2025ProdStack/Database/EventsTable" [
+        label = " EventsTable",
+        fontsize = 12,
+        image = "/Users/pasqualemazzei/github-repo/summit-milan-2025/node_modules/cdk-dia/icons/aws/Service/Arch_Database/64/Arch_Amazon-DynamoDB_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 1.2,
+        height = 1.466,
+      ];
+      subgraph "cluster-SubGraph.Backend" {
+        graph [
+          label = "Backend",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#d6d6d6",
+        ];
+        "SummitMilan2025ProdStack/Backend/EventHandlerFunction" [
+          label = " EventHandlerFunction",
+          fontsize = 12,
+          image = "/Users/pasqualemazzei/github-repo/summit-milan-2025/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 2,
+          height = 2.266,
+        ];
+        "SummitMilan2025ProdStack/Backend/EventsApi" [
+          label = " EventsApi",
+          fontsize = 12,
+          image = "/Users/pasqualemazzei/github-repo/summit-milan-2025/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-API-Gateway_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.466,
+        ];
+      }
+      subgraph "cluster-SubGraph.Frontend" {
+        graph [
+          label = "Frontend",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#d6d6d6",
+        ];
+        "SummitMilan2025ProdStack/Frontend/WebsiteBucket" [
+          label = " WebsiteBucket",
+          fontsize = 12,
+          image = "/Users/pasqualemazzei/github-repo/summit-milan-2025/node_modules/cdk-dia/icons/aws/Service/Arch_Storage/64/Arch_Amazon-S3-Standard_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 2,
+          height = 2.266,
+        ];
+        "SummitMilan2025ProdStack/Frontend/OAI" [
+          label = " OAI",
+          fontsize = 12,
+          image = "/Users/pasqualemazzei/github-repo/summit-milan-2025/node_modules/cdk-dia/icons/aws/Resource/Res_Security-Identity-and-Compliance/Res_48_Dark/Res_AWS-Identity-Access-Management_Permissions_48_Dark_gen.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 2,
+          height = 2.266,
+        ];
+        "SummitMilan2025ProdStack/Frontend/WebsiteDistribution" [
+          label = " WebsiteDistribution",
+          fontsize = 12,
+          image = "/Users/pasqualemazzei/github-repo/summit-milan-2025/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-CloudFront_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 2,
+          height = 2.266,
+        ];
+      }
+    }
+  }
+  "SummitMilan2025ProdStack/Backend/EventHandlerFunction" -> "SummitMilan2025ProdStack/Database/EventsTable" [
+    dir = "both",
+  ];
+  "SummitMilan2025ProdStack/Backend/EventsApi" -> "SummitMilan2025ProdStack/Backend/EventHandlerFunction" [
+    dir = "both",
+  ];
+  "SummitMilan2025ProdStack/Frontend/WebsiteBucket" -> "SummitMilan2025ProdStack/Frontend/OAI" [
+    dir = "both",
+  ];
+  "SummitMilan2025ProdStack/Frontend/WebsiteDistribution" -> "SummitMilan2025ProdStack/Frontend/WebsiteBucket" [
+    dir = "both",
+  ];
+}

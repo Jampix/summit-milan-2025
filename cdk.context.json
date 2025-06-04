@@ -1,0 +1,43 @@
+{
+  "dev": {
+    "region": "eu-west-1",
+    "stackName": "SummitMilan2025-Dev",
+    "domainName": "dev.summit.example.com",
+    "instanceType": "t3.micro",
+    "logRetention": 7,
+    "enableAlarms": false,
+    "certificateArn": "arn:aws:acm:eu-west-1:123456789012:certificate/example-dev"
+  },
+  "staging": {
+    "region": "eu-west-1",
+    "stackName": "SummitMilan2025-Staging",
+    "domainName": "staging.summit.example.com",
+    "instanceType": "t3.small",
+    "logRetention": 14,
+    "enableAlarms": true,
+    "certificateArn": "arn:aws:acm:eu-west-1:123456789012:certificate/example-staging"
+  },
+  "prod": {
+    "region": "eu-west-1",
+    "stackName": "SummitMilan2025-Prod",
+    "domainName": "summit.example.com",
+    "instanceType": "t3.medium",
+    "logRetention": 30,
+    "enableAlarms": true,
+    "highAvailability": true,
+    "certificateArn": "arn:aws:acm:eu-west-1:123456789012:certificate/example-prod"
+  },
+  "environments": ["dev", "staging", "prod"],
+  "tags": {
+    "common": {
+      "Project": "SummitMilan2025",
+      "Owner": "InfraTeam",
+      "Repository": "https://github.com/pasqualemazzei/summit-milan-2025"
+    }
+  },
+  "features": {
+    "enableXRay": true,
+    "enableBackup": true,
+    "enableWAF": true
+  }
+} 

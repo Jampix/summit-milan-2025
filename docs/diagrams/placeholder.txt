@@ -1,0 +1,5 @@
+I diagrammi dell'architettura verranno generati automaticamente quando esegui:
+
+npm run diagrams
+ 
+Questo file è solo un placeholder per garantire che la cartella esista nel repository. 

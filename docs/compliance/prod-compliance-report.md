@@ -1,0 +1,64 @@
+# Report di Conformità - Ambiente PROD
+
+Generato il 5/22/2025, 8:27:15 AM
+
+## Riepilogo
+
+Totale problemi rilevati: 16
+- AWS Solutions: 16
+- Sicurezza: 0
+- Altri: 0
+
+## Stato della sintesi
+
+La sintesi CDK ha completato con errori.
+
+## Dettagli
+
+### Best Practice AWS
+- [Error at /SummitMilan2025ProdStack/Backend/EventHandlerFunction/ServiceRole/Resource] AwsSolutions-IAM4[Policy::arn:<AWS::Partition>:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole]: The IAM user, role, or group uses AWS managed policies. An AWS managed policy is a standalone policy that is created and administered by AWS. Currently, many AWS managed policies do not restrict resource scope. Replace AWS managed policies with system specific (customer) managed policies.This is a granular rule that returns individual findings that can be suppressed with 'appliesTo'. The findings are in the format 'Policy::<policy>' for AWS managed policies. Example: appliesTo:
+- [Error at /SummitMilan2025ProdStack/Backend/EventHandlerFunction/Resource] AwsSolutions-L1: The non-container Lambda function is not configured to use the latest runtime version. Use the latest available runtime for the targeted language to avoid technical debt. Runtimes specific to a language or framework version are deprecated when the version reaches end of life. This rule only applies to non-container Lambda functions.
+- [Error at /SummitMilan2025ProdStack/Backend/EventsApi/Resource] AwsSolutions-APIG2: The REST API does not have request validation enabled. The API should have basic request validation enabled. If the API is integrated with custom source (Lambda, ECS, etc..) in the backend, deeper input validation should be considered for implementation.
+- [Error at /SummitMilan2025ProdStack/Backend/EventsApi/DeploymentStage.prod/Resource] AwsSolutions-APIG1: The API does not have access logging enabled. Enabling access logs helps operators view who accessed an API and how the caller accessed the API.
+- [Warning at /SummitMilan2025ProdStack/Backend/EventsApi/DeploymentStage.prod/Resource] AwsSolutions-APIG3: The REST API stage is not associated with AWS WAFv2 web ACL. AWS WAFv2 is a web application firewall that helps protect web applications and APIs from attacks by allowing configured rules to allow, block, or monitor (count) web requests based on customizable rules and conditions that are defined.
+- [Error at /SummitMilan2025ProdStack/Backend/EventsApi/Default/events/GET/Resource] AwsSolutions-APIG4: The API does not implement authorization. In most cases an API needs to have an authentication and authorization implementation strategy. This includes using such approaches as IAM, Cognito User Pools, Custom authorizer, etc.
+- [Error at /SummitMilan2025ProdStack/Backend/EventsApi/Default/events/GET/Resource] AwsSolutions-COG4: The API GW method does not use a Cognito user pool authorizer. API Gateway validates the tokens from a successful user pool authentication, and uses them to grant your users access to resources including Lambda functions, or your own API.
+- [Error at /SummitMilan2025ProdStack/Backend/EventsApi/Default/events/POST/Resource] AwsSolutions-APIG4: The API does not implement authorization. In most cases an API needs to have an authentication and authorization implementation strategy. This includes using such approaches as IAM, Cognito User Pools, Custom authorizer, etc.
+- [Error at /SummitMilan2025ProdStack/Backend/EventsApi/Default/events/POST/Resource] AwsSolutions-COG4: The API GW method does not use a Cognito user pool authorizer. API Gateway validates the tokens from a successful user pool authentication, and uses them to grant your users access to resources including Lambda functions, or your own API.
+- [Error at /SummitMilan2025ProdStack/Backend/EventsApi/Default/events/{eventId}/GET/Resource] AwsSolutions-APIG4: The API does not implement authorization. In most cases an API needs to have an authentication and authorization implementation strategy. This includes using such approaches as IAM, Cognito User Pools, Custom authorizer, etc.
+- [Error at /SummitMilan2025ProdStack/Backend/EventsApi/Default/events/{eventId}/GET/Resource] AwsSolutions-COG4: The API GW method does not use a Cognito user pool authorizer. API Gateway validates the tokens from a successful user pool authentication, and uses them to grant your users access to resources including Lambda functions, or your own API.
+- [Error at /SummitMilan2025ProdStack/Frontend/WebsiteDistribution/LoggingBucket/Resource] AwsSolutions-S10: The S3 Bucket or bucket policy does not require requests to use SSL. You can use HTTPS (TLS) to help prevent potential attackers from eavesdropping on or manipulating network traffic using person-in-the-middle or similar attacks. You should allow only encrypted connections over HTTPS (TLS) using the aws:SecureTransport condition on Amazon S3 bucket policies.
+- [Warning at /SummitMilan2025ProdStack/Frontend/WebsiteDistribution/Resource] AwsSolutions-CFR1: The CloudFront distribution may require Geo restrictions. Geo restriction may need to be enabled for the distribution in order to allow or deny a country in order to allow or restrict users in specific locations from accessing content.
+- [Warning at /SummitMilan2025ProdStack/Frontend/WebsiteDistribution/Resource] AwsSolutions-CFR2: The CloudFront distribution may require integration with AWS WAF. The Web Application Firewall can help protect against application-layer attacks that can compromise the security of the system or place unnecessary load on them.
+- [Error at /SummitMilan2025ProdStack/Frontend/WebsiteDistribution/Resource] AwsSolutions-CFR4: The CloudFront distribution allows for SSLv3 or TLSv1 for HTTPS viewer connections. Vulnerabilities have been and continue to be discovered in the deprecated SSL and TLS protocols. Help protect viewer connections by specifying a viewer certificate that enforces a minimum of TLSv1.1 or TLSv1.2 in the security policy. Distributions that use the default CloudFront viewer certificate or use 'vip' for the 'SslSupportMethod' are non-compliant with this rule, as the minimum security policy is set to TLSv1 regardless of the specified 'MinimumProtocolVersion'.
+- [Error at /SummitMilan2025ProdStack/Frontend/WebsiteDistribution/Resource] AwsSolutions-CFR5: The CloudFront distributions uses SSLv3 or TLSv1 for communication to the origin. Vulnerabilities have been and continue to be discovered in the deprecated SSL and TLS protocols. Using a security policy with minimum TLSv1.1 or TLSv1.2 and appropriate security ciphers for HTTPS helps protect viewer connections.
+
+
+NOTICES         (What's this? https://github.com/aws/aws-cdk/wiki/CLI-Notices)
+
+32775	(cli): CLI versions and CDK library versions have diverged
+
+	Overview: Starting in CDK 2.179.0, CLI versions will no longer be in
+	          lockstep with CDK library versions. CLI versions will now be
+	          released as 2.1000.0 and continue with 2.1001.0, etc.
+
+	Affected versions: cli: >=2.0.0 <=2.1005.0
+
+	More information at: https://github.com/aws/aws-cdk/issues/32775
+
+
+If you don’t want to see a notice anymore, use "cdk acknowledge <id>". For example, "cdk acknowledge 32775".
+Found errors
+
+### Sicurezza
+
+### Altri
+
+## Interpretazione dei Risultati
+
+I risultati sopra riportati indicano le aree in cui l'infrastruttura potrebbe non aderire alle best practice AWS o a standard di sicurezza comuni. Ogni warning fornisce:
+1. Un ID univoco (es. AwsSolutions-IAM4)
+2. Il percorso della risorsa interessata
+3. Una descrizione del problema
+
+Utilizzare questi risultati per migliorare la conformità dell'infrastruttura.
