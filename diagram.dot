@@ -91,6 +91,45 @@ digraph "Diagram" {
           width = 1.2,
           height = 1.466,
         ];
+        "SummitMilan2025ProdStack/Backend/EventsGetValidator" [
+          label = " EventsGetValidator",
+          fontsize = 12,
+          image = "/Users/pasqualemazzei/github-repo/summit-milan-2025/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-API-Gateway_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.466,
+        ];
+        "SummitMilan2025ProdStack/Backend/EventsPostValidator" [
+          label = " EventsPostValidator",
+          fontsize = 12,
+          image = "/Users/pasqualemazzei/github-repo/summit-milan-2025/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-API-Gateway_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.466,
+        ];
+        "SummitMilan2025ProdStack/Backend/EventGetValidator" [
+          label = " EventGetValidator",
+          fontsize = 12,
+          image = "/Users/pasqualemazzei/github-repo/summit-milan-2025/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-API-Gateway_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.466,
+        ];
       }
       subgraph "cluster-SubGraph.Frontend" {
         graph [
@@ -130,6 +169,32 @@ digraph "Diagram" {
           width = 2,
           height = 2.266,
         ];
+        "SummitMilan2025ProdStack/Frontend/SecureCachePolicy" [
+          label = " SecureCachePolicy",
+          fontsize = 12,
+          image = "/Users/pasqualemazzei/github-repo/summit-milan-2025/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-CloudFront_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.466,
+        ];
+        "SummitMilan2025ProdStack/Frontend/SecurityHeadersPolicy" [
+          label = "\nSecurityHeadersPolicy",
+          fontsize = 12,
+          image = "/Users/pasqualemazzei/github-repo/summit-milan-2025/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-CloudFront_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.682,
+        ];
         "SummitMilan2025ProdStack/Frontend/WebsiteDistribution" [
           label = " WebsiteDistribution",
           fontsize = 12,
@@ -152,10 +217,34 @@ digraph "Diagram" {
   "SummitMilan2025ProdStack/Backend/EventsApi" -> "SummitMilan2025ProdStack/Backend/EventHandlerFunction" [
     dir = "both",
   ];
+  "SummitMilan2025ProdStack/Backend/EventsApi" -> "SummitMilan2025ProdStack/Backend/EventsGetValidator" [
+    dir = "both",
+  ];
+  "SummitMilan2025ProdStack/Backend/EventsApi" -> "SummitMilan2025ProdStack/Backend/EventsPostValidator" [
+    dir = "both",
+  ];
+  "SummitMilan2025ProdStack/Backend/EventsApi" -> "SummitMilan2025ProdStack/Backend/EventGetValidator" [
+    dir = "both",
+  ];
+  "SummitMilan2025ProdStack/Backend/EventsGetValidator" -> "SummitMilan2025ProdStack/Backend/EventsApi" [
+    dir = "both",
+  ];
+  "SummitMilan2025ProdStack/Backend/EventsPostValidator" -> "SummitMilan2025ProdStack/Backend/EventsApi" [
+    dir = "both",
+  ];
+  "SummitMilan2025ProdStack/Backend/EventGetValidator" -> "SummitMilan2025ProdStack/Backend/EventsApi" [
+    dir = "both",
+  ];
   "SummitMilan2025ProdStack/Frontend/WebsiteBucket" -> "SummitMilan2025ProdStack/Frontend/OAI" [
     dir = "both",
   ];
   "SummitMilan2025ProdStack/Frontend/WebsiteDistribution" -> "SummitMilan2025ProdStack/Frontend/WebsiteBucket" [
+    dir = "both",
+  ];
+  "SummitMilan2025ProdStack/Frontend/WebsiteDistribution" -> "SummitMilan2025ProdStack/Frontend/SecureCachePolicy" [
+    dir = "both",
+  ];
+  "SummitMilan2025ProdStack/Frontend/WebsiteDistribution" -> "SummitMilan2025ProdStack/Frontend/SecurityHeadersPolicy" [
     dir = "both",
   ];
 }
